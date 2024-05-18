@@ -41,6 +41,6 @@ Here are some of the technical skills I have acquired:
 I'm always open to discussing new projects, collaborations, or opportunities. You can reach me via:
 
 - **Email:** [riyanfazrirahman@gmail.com](mailto:riyanfazrirahman@gmail.com)
-- **LinkedIn:** [Riyan Fazri Rahman](https://www.linkedin.com/in/riyan-fazri-rahman)
+- **LinkedIn:** [Riyan Fazri Rahman](https://www.linkedin.com/in/riyan-fazri-rahman-1589152b0)
 
 Thank you for visiting my portfolio!
