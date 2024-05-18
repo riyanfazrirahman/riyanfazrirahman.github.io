@@ -19,13 +19,13 @@ I enjoy solving complex problems and continuously learning new technologies. Thi
 Here are some of the key projects in my portfolio:
 
 ### [Project 1: App Berbasis Web Rumus Segitiga](https://riyanfazrirahman.github.io/project-revou/luas-segitiga.html)
-- **Description:** A dynamic web application built with React and Node.js.
-- **Technologies:** React, Node.js, Express, MongoDB
+- **Description:** A dynamic web application for calculating the area and perimeter of a triangle.
+- **Technologies:** HTML, CSS, JavaScript
 - **Features:**
-  - User authentication and authorization
-  - Responsive design
-  - RESTful API integration
-
+  - User-friendly input forms for triangle dimensions
+  - Real-time calculation of area and perimeter
+  - Responsive design for various devices
+  - Simple and clean UI
 
 ## Skills
 
