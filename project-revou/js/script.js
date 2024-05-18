@@ -14,7 +14,7 @@ function hitungLuas() {
   rumusElemen.textContent = "1/2 x " + alas + " x " + tinggi;
 
   document.getElementById("hasilLuas").textContent = luas.toLocaleString();
-  document.getElementById("boxHasilLuas").textContent = luas.toLocaleString();
+  document.getElementById("boxHasilLuas").value = luas.toLocaleString();
   document.getElementById("jawaban").style.display = "block";
 }
 
@@ -36,8 +36,7 @@ function hitungKeliling() {
 
   document.getElementById("hasilKeliling").textContent =
     keliling.toLocaleString();
-  document.getElementById("boxHasilKeliling").textContent =
-    keliling.toLocaleString();
+  document.getElementById("boxHasilKeliling").value = keliling.toLocaleString();
   document.getElementById("jawaban").style.display = "block";
 }
 
