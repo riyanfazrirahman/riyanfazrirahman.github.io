@@ -41,6 +41,7 @@ a {
 }
 .btn:hover {
   background-color: #2880b9;
+  border: 2px solid white;
   color: white;
 }
 .btn-active {
@@ -60,6 +61,9 @@ main header {
 article {
   padding: 20px;
 }
+.content {
+  background-color: #2880b9;
+}
 .rumus {
   display: flex;
   justify-content: center;
@@ -69,7 +73,8 @@ img {
 }
 .judul-hitung {
   text-align: center;
-  margin: 10px;
+  color: white;
+  margin-bottom: 20px;
 }
 
 input {
@@ -82,16 +87,17 @@ input {
 }
 .box-hitung {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 10px;
   margin-top: 20px;
 }
 .btn-hitung {
-  width: 100%;
+  width: 20%;
   text-align: center;
 }
 
 .btn-reset {
+  width: 20%;
   position: relative;
   margin: 5px 0;
   color: salmon;
@@ -116,6 +122,7 @@ input {
   padding: 10px 10px;
   font-size: 18px;
   margin-bottom: 10px;
+  margin-top: 10px;
   font-size: 50px;
   color: #2880b9;
   border-radius: 5px;
@@ -125,6 +132,7 @@ input {
 
 #jawaban {
   display: none;
+  color: white;
 }
 
 footer {
