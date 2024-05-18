@@ -18,7 +18,7 @@ I enjoy solving complex problems and continuously learning new technologies. Thi
 
 Here are some of the key projects in my portfolio:
 
-### [Project 1: App Berbasis Web Rumus Segitiga](https://github.com/riyanfazrirahman/project-revou)
+### [Project 1: App Berbasis Web Rumus Segitiga](https://riyanfazrirahman.github.io/project-revou/luas-segitiga.html)
 - **Description:** A dynamic web application built with React and Node.js.
 - **Technologies:** React, Node.js, Express, MongoDB
 - **Features:**
