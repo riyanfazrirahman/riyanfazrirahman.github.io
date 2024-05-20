@@ -1,9 +1,10 @@
 # My Portfolio
 
-Welcome to my GitHub portfolio! Here you will find a collection of projects that showcase my skills and experiences in software development. 
+Welcome to my GitHub portfolio! Here you will find a collection of projects that showcase my skills and experiences in software development.
 Feel free to explore, use, and provide feedback on any of the repositories.
 
 ## Table of Contents
+
 - [About Me](#about-me)
 - [Projects](#projects)
 - [Skills](#skills)
@@ -11,7 +12,7 @@ Feel free to explore, use, and provide feedback on any of the repositories.
 
 ## About Me
 
-Hello! I'm Riyan-Fazri-Rahman, a passionate software developer with experience in web development and software engineering. 
+Hello! I'm Riyan-Fazri-Rahman, a passionate software developer with experience in web development and software engineering.
 I enjoy solving complex problems and continuously learning new technologies. This portfolio is a reflection of my journey and growth as a developer.
 
 ## Projects
@@ -19,7 +20,18 @@ I enjoy solving complex problems and continuously learning new technologies. Thi
 Here are some of the key projects in my portfolio:
 
 ### [Project 1: App Berbasis Web Rumus Segitiga](https://riyanfazrirahman.github.io/project-revou/luas-segitiga.html)
+
 - **Description:** A dynamic web application for calculating the area and perimeter of a triangle.
+- **Technologies:** HTML, CSS, JavaScript
+- **Features:**
+  - User-friendly input forms for triangle dimensions
+  - Real-time calculation of area and perimeter
+  - Responsive design for various devices
+  - Simple and clean UI
+
+### [Project 1: App Berbasis Web Rumus Segitiga](https://riyanfazrirahman.github.io/code-numerik/eliminasi-gauss-.html)
+
+- **Description:** A dynamic web applications to calculate the system of linear equations using the Gauss and Gauss Jordan elimination method.
 - **Technologies:** HTML, CSS, JavaScript
 - **Features:**
   - User-friendly input forms for triangle dimensions
