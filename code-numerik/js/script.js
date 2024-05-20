@@ -10,15 +10,14 @@ function displayMatrix(matrix, id) {
   let matrixBody = document.getElementById(id);
   let content = "";
   matrix.forEach((row) => {
-    let rowContent = row
-      .map(
-        (element) => `
-    <td>${element}</td>`
-      )
-      .join("");
+    let rowContent = row.map((element) => `<td>${element}</td>`).join("");
     content += `<tr>${rowContent}</tr>`;
   });
   matrixBody.innerHTML = content;
+}
+
+function padString(str, length) {
+  return str.toString().padEnd(length, " ");
 }
 
 function hitungGauss() {
@@ -64,25 +63,29 @@ function hitungGauss() {
     [a31, a32, a33, x3],
   ];
 
-  let pivot1 = matrices[0];
-
   // Tampilkan matriks awal
   displayMatrix(matrices, "matrixBody1");
 
   // ******************************************************************* //
 
-  // Langkah perhitungan
   let stepCalculation1 = document.getElementById("stepCalculation1");
+  stepCalculation1.innerHTML = ""; // Bersihkan konten lama
   stepCalculation1.innerHTML += `----------------------------------------<br>`;
+
+  // Langkah perhitungan
+  let pivot1 = matrices[0];
 
   // Baris 2
   stepCalculation1.innerHTML += "<br># Baris 2 <br>";
   stepCalculation1.innerHTML += `# Menentukan rumus:<br>`;
   stepCalculation1.innerHTML += `Pivot = [${pivot1[0]}] <br>`;
+
+  // Mencari rumus baris2
   let n2 = berapa(matrices[1][0], pivot1[0]);
   stepCalculation1.innerHTML += `berapa( a21 + ... * [pivot] ) = 0 <br>`;
   stepCalculation1.innerHTML += `berapa( ${matrices[1][0]} + ${n2} * [${pivot1[0]}] ) = 0 <br><br>`;
 
+  // Mendapatkan rumus baris2
   stepCalculation1.innerHTML += `# Menghitung baris2 <br>`;
   let newRow2 = matrices[1].map((val, idx) => {
     let result = baris(val, n2, pivot1[idx]);
@@ -96,6 +99,8 @@ function hitungGauss() {
   // Baris 3
   stepCalculation1.innerHTML += "# Baris 3 #<br>";
   stepCalculation1.innerHTML += `# Menentukan rumus:<br>`;
+
+  // Mencari rumus baris3
   let n3 = berapa(matrices[2][0], pivot1[0]);
   stepCalculation1.innerHTML += `berapa( a31 + ... * [pivot] ) = 0 <br>`;
   stepCalculation1.innerHTML += `berapa( ${matrices[2][0]} +  ${n3} * [${pivot1[0]}] ) = 0 <br><br>`;
@@ -119,11 +124,15 @@ function hitungGauss() {
     // Pivot baru untuk langkah berikutnya
     let pivot2 = matrices[1];
     let stepCalculation2 = document.getElementById("stepCalculation2");
+    stepCalculation2.innerHTML = ""; // Bersihkan konten lama
+
     stepCalculation2.innerHTML += `----------------------------------------<br>`;
 
+    // Mencari rumus baris3
     stepCalculation2.innerHTML += "<br># Langkah berikutnya #<br><br>";
     stepCalculation2.innerHTML += `# Menentukan rumus:<br>`;
     stepCalculation2.innerHTML += `Pivot = [${pivot2[1]}] <br>`;
+
     let n3_2 = berapa(matrices[2][1], pivot2[1]);
     stepCalculation2.innerHTML += `berapa( a32 + ... * [pivot] ) = 0 <br>`;
     stepCalculation2.innerHTML += `berapa( ${matrices[2][1]} + ${n3_2} * [${pivot2[1]}] ) = 0<br><br>`;
@@ -136,9 +145,6 @@ function hitungGauss() {
       return result;
     });
     stepCalculation2.innerHTML += `<br>`;
-
-    // let n3_2 = berapa(matrices[2][1], pivot2[1]);
-    // matrices[2] = matrices[2].map((val, idx) => baris(val, n3_2, pivot2[idx]));
   }
 
   // Tampilkan matriks Akhir
@@ -171,20 +177,86 @@ function hitungGauss() {
 
   // Tampilkan langkah perhitungan
   let stepCalculation = document.getElementById("stepCalculation");
+  let colWidth = 3;
   stepCalculation.innerHTML = `----------------------------------------<br>`;
+
+  let bb00 = padString(" ", colWidth);
+
+  let bb11 = padString(b11 + "x", colWidth);
+  let bb111 = padString("x", colWidth);
+  let bb12 = padString(b12 + "y", colWidth);
+  let bb121 = padString(b12 + "(" + y + ")", colWidth);
+  let b12y = b12 * y;
+  let bb122 = padString("(" + b12y + ")", colWidth);
+  let bb13 = padString(b13 + "z", colWidth);
+  let bb131 = padString(b13 + "(" + z + ")", colWidth);
+  let b13z = b13 * z;
+  let bb132 = padString("(" + b13z + ")", colWidth);
+  let b13zb12y = b12y + b13z;
+  let bb133 = padString("(" + b13zb12y + ")", colWidth);
+  let bb14 = padString(b14, colWidth);
+  let bb141 = padString(b14 + "+" + "(" + -b13zb12y + ")", colWidth);
+  let b14b13zb12y = b14 + -b13zb12y;
+  let bb142 = padString("(" + b14b13zb12y + ")", colWidth);
+  let bb143 = padString("(" + b14b13zb12y + ")/" + b11, colWidth);
+  let b14b13zb12yb11 = b14b13zb12y / b11;
+  let bb144 = padString(b14b13zb12yb11, colWidth);
+
+  let bb22 = padString(b22 + "y", colWidth);
+  let bb221 = padString("y", colWidth);
+  let bb23 = padString(b23 + "z", colWidth);
+  let bb231 = padString(b23 + "(" + z + ")", colWidth);
+  let b23z = b23 * z;
+  let bb232 = padString("(" + b23z + ")", colWidth);
+  let bb24 = padString(b24, colWidth);
+  let bb241 = padString(b24 + "+" + "(" + -b23z + ")", colWidth);
+  let b24b23z = b24 + -b23z;
+  let bb242 = padString("(" + b24b23z + ")", colWidth);
+  let bb243 = padString("(" + b24b23z + ")/" + b22, colWidth);
+  let b24b23zb22 = b24b23z / b22;
+  let bb244 = padString(b24b23zb22, colWidth);
+
+  let bb33 = padString(b33 + "z", colWidth);
+  let bb331 = padString("z", colWidth);
+  let bb34 = padString(b34, colWidth);
+  let bb341 = padString(b34 + "/" + b33, colWidth);
+
   stepCalculation.innerHTML += `
   <h4>Langkah Perhitungan</h4>
-  z = ${b34} / ${b33} = <b>${z}</b> <br>
-  y = (${b24} - ${b23} * ${z}) / ${b22} = <b>${y}<b> <br>
-  x = (${b14} - ${b12} * ${y} - ${b13} * ${z}) / ${b11} = <b>${x}</b>;
+  <pre>
+${bb11} + ${bb12} + ${bb13} = ${bb14}
+${bb00}   ${bb22} + ${bb23} = ${bb24}
+${bb00}   ${bb00}   ${bb33} = ${bb34}
+${bb00}   ${bb00}   ${bb331} = ${bb341}
+${bb00}   ${bb00}   ${bb331} = <span class="red">${z}</span>
+${bb00}   ${bb22} + ${bb23} = ${bb24}
+${bb00}   ${bb22} + ${bb231} = ${bb24}
+${bb00}   ${bb22} + ${bb232} = ${bb24}
+${bb00}   ${bb00}   ${bb22} = ${bb241}
+${bb00}   ${bb00}   ${bb22} = ${bb242}
+${bb00}   ${bb00}   ${bb221} = ${bb243}
+${bb00}   ${bb00}   ${bb221} = <span class="red">${bb244}</span>
+${bb11} + ${bb12} + ${bb13} = ${bb14}
+${bb11} + ${bb121} + ${bb131} = ${bb14}
+${bb11} + ${bb122} + ${bb132} = ${bb14}
+${bb00}   ${bb11} + ${bb133} = ${bb14}
+${bb00}   ${bb00}   ${bb11} = ${bb141}
+${bb00}   ${bb00}   ${bb11} = ${bb142}
+${bb00}   ${bb00}   ${bb111} = ${bb143}
+${bb00}   ${bb00}   ${bb111} = <span class="red">${bb144}</span>
+</pre>
+----------------------------------------<br>
+<h4>Jadi, hasil perhitungan adalah: </h4>
+x = ${x} <br>
+y = ${y} <br>
+z = ${z} <br>
   `;
 }
 
 function resetForm() {
-  let form = document.getElementById("formGauss");
-  form.reset();
+  document.getElementById("formGauss").reset();
+  document.getElementById("boxHasilGauss").value = "";
 
   let jawabanSection = document.getElementById("jawaban");
-
   jawabanSection.style.display = "none";
 }

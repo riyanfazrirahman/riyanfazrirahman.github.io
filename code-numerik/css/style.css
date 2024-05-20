@@ -150,7 +150,7 @@ input {
 }
 .matrik-b {
   display: grid;
-  margin-left: 20px;
+  margin-left: 5px;
   grid-template-columns: repeat(1, 1fr);
 }
 #matrixBodyAkhir {
@@ -181,6 +181,18 @@ th,
 td {
   padding: 10px;
   text-align: center;
+}
+
+pre {
+  color: #2880b9;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.red {
+  color: red;
+  border-bottom: 1px solid red;
+  font-weight: bold;
 }
 
 footer {
