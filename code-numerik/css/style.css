@@ -131,11 +131,18 @@ input {
   margin-bottom: 5px;
 }
 
-#stepCalculation {
+#stepCalculation_3x3 {
+  font-size: medium;
+}
+#stepCalculation_4x4 {
   font-size: medium;
 }
 
-#jawaban {
+#jawaban3x3 {
+  display: none;
+  color: white;
+}
+#jawaban4x4 {
   display: none;
   color: white;
 }
@@ -144,16 +151,30 @@ input {
   display: flex;
   justify-content: space-between;
 }
-.matrik-a {
+.matrik-a3x3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
-.matrik-b {
+.matrik-b3x3 {
   display: grid;
   margin-left: 5px;
   grid-template-columns: repeat(1, 1fr);
 }
-#matrixBodyAkhir {
+
+.matrik-a4x4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.matrik-b4x4 {
+  display: grid;
+  margin-left: 5px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+#matrixBodyAkhir_3x3 {
+  background-color: limegreen;
+}
+#matrixBodyAkhir_4x4 {
   background-color: limegreen;
 }
 
@@ -193,6 +214,22 @@ pre {
   color: red;
   border-bottom: 1px solid red;
   font-weight: bold;
+}
+
+#pilihGaus3x3 {
+  display: none;
+}
+#pilihGaus4x4 {
+  display: none;
+}
+
+.btn-pilih {
+  width: 30%;
+  margin: 5px;
+}
+.btn-pilih-active {
+  background-color: #2880b9;
+  color: white;
 }
 
 footer {
