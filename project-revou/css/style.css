@@ -1,4 +1,4 @@
-/* style */
+/* style CSS */
 * {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -28,6 +28,14 @@ a {
   text-decoration: none;
 }
 
+#showLuasSegitiga {
+  display: block;
+}
+
+#showKelilingSegitiga {
+  display: none;
+}
+
 .btn {
   margin: 5px 0;
   color: #2880b9;
@@ -39,11 +47,15 @@ a {
   border-radius: 5px;
   cursor: pointer;
 }
+.btn-nav {
+  width: 100%;
+}
 .btn:hover {
   background-color: #2880b9;
   border: 2px solid white;
   color: white;
 }
+
 .btn-active {
   background-color: #2880b9;
   color: white;
@@ -144,7 +156,11 @@ input {
   cursor: unset;
 }
 
-#jawaban {
+#jawabanLuas {
+  display: none;
+  color: white;
+}
+#jawabanKeliling {
   display: none;
   color: white;
 }

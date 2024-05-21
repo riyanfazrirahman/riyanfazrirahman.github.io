@@ -1,3 +1,25 @@
+// Menampilkan Rumus Luas ketika buttom luas di klick
+function luasSegitigaClick(buttonElement) {
+  document.getElementById("showLuasSegitiga").style.display = "block";
+  document.getElementById("showKelilingSegitiga").style.display = "none";
+
+  buttonElement.classList.add("btn-active");
+  document
+    .querySelector("button[onclick='kelilingSegitigaClick(this)']")
+    .classList.remove("btn-active");
+}
+
+// Menampilkan Rumus Keliling ketika buttom keling di klick
+function kelilingSegitigaClick(buttonElement) {
+  document.getElementById("showKelilingSegitiga").style.display = "block";
+  document.getElementById("showLuasSegitiga").style.display = "none";
+
+  buttonElement.classList.add("btn-active");
+  document
+    .querySelector("button[onclick='luasSegitigaClick(this)']")
+    .classList.remove("btn-active");
+}
+
 // Menghitung Luas Segitiga
 function hitungLuas() {
   var alas = parseFloat(document.getElementById("alas").value);
@@ -15,7 +37,7 @@ function hitungLuas() {
 
   document.getElementById("hasilLuas").textContent = luas.toLocaleString();
   document.getElementById("boxHasilLuas").value = luas.toLocaleString();
-  document.getElementById("jawaban").style.display = "block";
+  document.getElementById("jawabanLuas").style.display = "block";
 }
 
 // Menghitung Keliling Segitiga
@@ -37,10 +59,11 @@ function hitungKeliling() {
   document.getElementById("hasilKeliling").textContent =
     keliling.toLocaleString();
   document.getElementById("boxHasilKeliling").value = keliling.toLocaleString();
-  document.getElementById("jawaban").style.display = "block";
+  document.getElementById("jawabanKeliling").style.display = "block";
 }
 
 // Reset Hitung
 function resetForm() {
-  document.getElementById("jawaban").style.display = "none";
+  document.getElementById("jawabanLuas").style.display = "none";
+  document.getElementById("jawabanKeliling").style.display = "none";
 }
