@@ -21,7 +21,7 @@ function createInputanMatriks() {
     for (let col = 1; col <= matriks + 1; col++) {
       const inputan = document.createElement("input");
       inputan.className = "inputan bg-2";
-      inputan.type = "text";
+      inputan.type = "number";
       inputan.placeholder = `x${row} (${col})`;
       inputan.id = `input-${row}-${col}`;
       formInput.append(inputan);
