@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Riyan Fazri Rahman - Komputasi</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" type="image/png" href="assets/icons-github.png">
+    </head>
+    <body>
+        <div class="container">
+            <!-- judul web -->
+            <h1 class="text-center p-2">Komputasi - Ku</h1>
+            <section class="text-center">
+                <!-- deskripsi web -->
+                <p>Hai teman, Selamat datang di Komputasi ku! Sebuah web apps
+                    sederhana Metode Pencarian Solusi Sistem Persamaan
+                    Linier.</p>
+                <br>
+                <!-- Matakuliah: -->
+                <p><b>METODE NUMERI</b></p>
+                <!-- oleh: -->
+                <p><b>Riyan Fazri Rahman (NIM. C2255201005)</b></p>
+                <br>
+            </section>
+        </div>
+        <div class="container bg-1">
+            <header class="text-center p-2">
+                <h2>Persamaan Matriks</h2>
+            </header>
+        </div>
+        <!-- contoh persamaan -->
+        <article class="bg-2 p-2">
+            <p>Persamaan <b>[𝐴]{𝑋}={𝐵}</b></p>
+            <p>Atau:</p>
+            <section>
+                <div class="text-center">
+                    <img src="assets/Gambar3.png" alt="rumus-luas-segitiga"
+                        style="width: 100%;">
+                </div>
+            </section>
+        </article>
+        <!-- btn persamaan matriks -->
+        <div class="btn-gauss bg-1">
+            <button id="matriks3x3" class="btn">3x3</button>
+            <button id="matriks4x4" class="btn">4x4</button>
+        </div>
+        <!-- input matriks -->
+        <div id="formInput" class="bg-1"></div>
+        <!-- # -->
+        <div id="containerResult">
+            <div class="btn-gauss bg-1">
+                <!-- pilihan metode -->
+                <button id="solveGaussian" class="btn">Eliminasi Gauss </button>
+                <button id="solveGaussJordan" class="btn">Eliminasi
+                    Gauss Jordan</button>
+                <!-- hasil penyelesaian -->
+                <button id="btnReset" class="btn">Reset</button>
+            </div>
+            <div id="result"></div>
+        </div>
+        <!-- footer -->
+        <footer>
+            <p>By. Riyan Fazri Rahman</p>
+        </footer>
+        <!-- javascript -->
+        <script src="js/script.js"></script>
+    </body>
+</html>

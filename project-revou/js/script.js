@@ -51,10 +51,10 @@ function hitungKeliling() {
     return;
   }
 
-  var keliling = sisiA * sisiB * sisiC;
+  var keliling = sisiA + sisiB + sisiC;
 
   var rumusElemen = document.getElementById("rumusKeliling");
-  rumusElemen.textContent = sisiA + " x " + sisiB + " x " + sisiC;
+  rumusElemen.textContent = sisiA + " + " + sisiB + " + " + sisiC;
 
   document.getElementById("hasilKeliling").textContent =
     keliling.toLocaleString();
