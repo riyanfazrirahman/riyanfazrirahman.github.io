@@ -29,7 +29,7 @@ Here are some of the key projects in my portfolio:
   - Responsive design for various devices
   - Simple and clean UI
 
-### [Project 2: App Berbasis Web Rumus Segitiga](https://riyanfazrirahman.github.io/code-numerik/eliminasi-gauss-.html)
+### [Project 2: App Berbasis Web Metode Eliminasi Gauss](https://riyanfazrirahman.github.io/code-numerik/index.html)
 
 - **Description:** A dynamic web applications to calculate the system of linear equations using the Gauss and Gauss Jordan elimination method.
 - **Technologies:** HTML, CSS, JavaScript
