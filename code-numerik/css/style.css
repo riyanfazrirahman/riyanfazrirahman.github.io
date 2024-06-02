@@ -105,6 +105,16 @@ td {
   text-align: center;
 }
 
+/* Style untuk teks dalam pre */
+pre {
+  font-family: monospace;
+  background-color: #fff4ea;
+  padding: 10px;
+  border: 1px solid #3ebdc6;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
 /* footer */
 footer {
   position: relative;
