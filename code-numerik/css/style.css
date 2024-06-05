@@ -6,6 +6,16 @@
 /*  */
 body {
   padding: 0 25%;
+  background-color: #c7e3ee;
+}
+.content {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px 0;
+}
+.main {
+  padding: 10px 10px;
 }
 @media (max-width: 900px) {
   body {
@@ -48,8 +58,12 @@ body {
 .container {
   width: 100%;
 }
-#containerResult {
+#containerResult,
+#containerSolve {
   display: none;
+}
+#result {
+  padding: 10px 10px;
 }
 
 /* inputan */
@@ -110,8 +124,6 @@ pre {
   font-family: monospace;
   background-color: #fff4ea;
   padding: 10px;
-  border: 1px solid #3ebdc6;
-  border-radius: 5px;
   overflow-x: auto;
 }
 
@@ -125,6 +137,5 @@ footer {
 footer p {
   padding: 10px;
   margin-top: 30px;
-  border-top: 1px solid gray;
   text-align: center;
 }

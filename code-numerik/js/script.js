@@ -3,9 +3,10 @@
 const matriks3x3 = document.getElementById("matriks3x3");
 const matriks4x4 = document.getElementById("matriks4x4");
 const formInput = document.getElementById("formInput");
-const containerResult = document.getElementById("containerResult");
+const containerSolve = document.getElementById("containerSolve");
 const solveGaussian = document.getElementById("solveGaussian");
 const solveGaussJordan = document.getElementById("solveGaussJordan");
+const containerResult = document.getElementById("containerResult");
 const result = document.getElementById("result");
 const btnReset = document.getElementById("btnReset");
 
@@ -20,7 +21,7 @@ matriks3x3.onclick = function () {
   createInputanMatriks();
   formInput.style.display = "grid";
   formInput.style.gridTemplateColumns = "repeat(4, 1fr)";
-  containerResult.style.display = "block";
+  containerSolve.style.display = "block";
 };
 
 // 3.3. 4x4 Button
@@ -29,7 +30,7 @@ matriks4x4.onclick = function () {
   createInputanMatriks();
   formInput.style.display = "grid";
   formInput.style.gridTemplateColumns = "repeat(5, 1fr)";
-  containerResult.style.display = "block";
+  containerSolve.style.display = "block";
 };
 
 /***************************************************************************/
@@ -43,7 +44,7 @@ function createInputanMatriks() {
       const inputan = document.createElement("input");
       inputan.className = "inputan bg-2";
       inputan.type = "number";
-      inputan.placeholder = `x${row} (${col})`;
+      inputan.placeholder = `a${row} (${col})`;
       inputan.id = `input-${row}-${col}`;
       formInput.append(inputan);
     }
@@ -59,7 +60,7 @@ function getMatrixValues() {
       const input = document.getElementById(`input-${row}-${col}`);
       const value = input.value;
       if (value.trim() === "" || isNaN(value)) {
-        result.innerHTML = "Mohon isi semua inputan dengan nomor yang valid!";
+        result.innerHTML = `<p  class="text-center p-2" >Mohon isi semua inputan dengan nomor yang valid!</p>`;
         return null;
       }
       rowValues.push(parseFloat(value));
@@ -75,10 +76,11 @@ function getMatrixValues() {
 
 // 3.4. Gaussian Button
 solveGaussian.onclick = function () {
-  const matrix = getMatrixValues();
+  containerResult.style.display = "block";
 
+  const matrix = getMatrixValues();
   if (matrix) {
-    result.innerHTML += `<h2 class="bg-1 p-2">Eliminasi Gauss</h2>`;
+    result.innerHTML += `<h2 class="bg-1 p-2 text-center">Eliminasi Gauss</h2>`;
     eliminasiGauss(matrix);
     subtitusi(matrix);
   }
@@ -86,11 +88,13 @@ solveGaussian.onclick = function () {
 
 // 3.5. Gauss-Jordan Button
 solveGaussJordan.onclick = function () {
+  containerResult.style.display = "block";
+
   const matrix = getMatrixValues();
   if (matrix) {
-    result.innerHTML += `<h2 class="bg-1 p-2">Eliminasi Gauss</h2>`;
+    result.innerHTML += `<h2 class="bg-1 p-2 text-center">Eliminasi Gauss</h2>`;
     eliminasiGauss(matrix);
-    result.innerHTML += `<hr><h2 class="bg-1 p-2">Eliminasi Gauss-Jordan</h2>`;
+    result.innerHTML += `<hr><h2 class="bg-1 p-2 text-center">Eliminasi Gauss-Jordan</h2>`;
     eliminasiGaussJordan(matrix);
     subtitusi(matrix);
   }
@@ -106,33 +110,38 @@ function eliminasiGauss(matrix) {
 
   // mulai langkah
   createTable(matrix, langkah++);
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < n - 1; i++) {
     // mulai perhitungan pada baris ke 2 isi baris yg pertama
     for (let k = i + 1; k < n; k++) {
-      // cari rumus hitung
-      let c = -matrix[k][i] / matrix[i][i];
-      result.innerHTML += `Menghitung baris ${k + 1}<br>`;
+      result.innerHTML += `<p class="pt-2">Menghitung baris ${k + 1}</p><br>`;
       // menentukan Pivot
-      result.innerHTML += `Pivot: ${matrix[i][i]}<br>`;
-      result.innerHTML += `Pengali: c = -(${matrix[k][i]}) / ${
-        matrix[i][i]
-      } = ${formatFloat(c)}<br>`;
+      let pivot = matrix[i][i];
+      result.innerHTML += `Pivot: ${pivot}<br>`;
+      // cari rumus hitung
+      let c = -matrix[k][i] / pivot;
+      result.innerHTML += `Pengali: c = -(${
+        matrix[k][i]
+      }) / ${pivot} = ${formatFloat(c)}<br>`;
 
       // mengeliminasi per baris
       for (let j = i; j < n + 1; j++) {
-        let originalValue = matrix[k][j];
-        let pivotValue = matrix[i][j];
-        // mengitung baris
-        matrix[k][j] = baris(originalValue, c, pivotValue);
-        // menampilkan perhitungan setiap baris
-        result.innerHTML += `b${k + 1}${
-          j + 1
-        } = ${originalValue} + (${formatFloat(
-          c
-        )} * ${pivotValue}) = ${formatFloat(matrix[k][j])}<br>`;
+        if (i === j) {
+          matrix[k][j] = 0;
+        } else {
+          let originalValue = matrix[k][j];
+          let pivotValue = matrix[i][j];
+          // mengitung baris
+          matrix[k][j] = baris(originalValue, c, pivotValue);
+          // menampilkan perhitungan setiap baris
+          result.innerHTML += `<pre>b${k + 1}${
+            j + 1
+          } = ${originalValue} + (${formatFloat(
+            c
+          )} * ${pivotValue}) = ${formatFloat(matrix[k][j])}<br></pre>`;
+        }
       }
-      createTable(matrix, langkah++);
     }
+    createTable(matrix, langkah++);
   }
   return matrix;
 }
@@ -142,34 +151,39 @@ function eliminasiGaussJordan(matrix) {
   const n = matrix.length;
   let langkah = 1;
 
-  // Mulai dari paling bawah
-  for (let i = n - 1; i >= 0; i--) {
-    createTable(matrix, langkah++);
+  createTable(matrix, langkah++);
 
+  // Mulai dari paling bawah
+  for (let i = n - 1; i >= 0 + 1; i--) {
     // mulai dari isi baris paling akhir -1 sebelum hasil
     for (let k = i - 1; k >= 0; k--) {
-      // cari rumus hitung
-      let c = -matrix[k][i] / matrix[i][i];
-      result.innerHTML += `Menghitung baris ${k + 1}<br>`;
+      result.innerHTML += `<p class="pt-2">Menghitung baris ${k + 1}</p><br>`;
       // menentukan Pivot
-      result.innerHTML += `Pivot: ${matrix[i][i]}<br>`;
-      result.innerHTML += `Pengali: c = -(${matrix[k][i]}) / ${
-        matrix[i][i]
-      } = ${formatFloat(c)}<br>`;
+      let pivot = matrix[i][i];
+      result.innerHTML += `Pivot: ${pivot}<br>`;
+      // cari rumus hitung
+      let c = -matrix[k][i] / pivot;
+      result.innerHTML += `Pengali: c = -(${
+        matrix[k][i]
+      }) / ${pivot} = ${formatFloat(c)}<br>`;
 
       // mengitung baris
       for (let j = 0; j < n + 1; j++) {
-        let originalValue = matrix[k][j];
-        let pivotValue = matrix[i][j];
-        matrix[k][j] += c * pivotValue;
-        result.innerHTML += `b${k + 1}${
-          j + 1
-        } = ${originalValue} + (${formatFloat(
-          c
-        )} * ${pivotValue}) = ${formatFloat(matrix[k][j])}<br>`;
+        if (i === j) {
+          matrix[k][j] = 0;
+        } else {
+          let originalValue = matrix[k][j];
+          let pivotValue = matrix[i][j];
+          matrix[k][j] += c * pivotValue;
+          result.innerHTML += `<pre>b${k + 1}${
+            j + 1
+          } = ${originalValue} + (${formatFloat(
+            c
+          )} * ${pivotValue}) = ${formatFloat(matrix[k][j])}<br></pre>`;
+        }
       }
-      createTable(matrix, langkah++);
     }
+    createTable(matrix, langkah++);
   }
 
   return matrix;
@@ -185,7 +199,7 @@ function createTable(matrix, langkah) {
   // Tabel
   table += `<table><tr>`;
   for (let i = 0; i <= matriks; i++) {
-    table += `<th class="bg-4">${i === matriks ? "Result" : `x${i + 1}`}</th>`;
+    table += `<th class="bg-4">${i === matriks ? "Result" : `a${i + 1}`}</th>`;
   }
   table += `</tr>`;
   for (let row of matrix) {
@@ -209,8 +223,8 @@ function formatFloat(value) {
 }
 
 // Fungsi menghitung baris
-function baris(val, multiplier, pivot) {
-  return val + multiplier * pivot;
+function baris(val, c, pivot) {
+  return val + c * pivot;
 }
 
 function subtitusi(matrix) {
@@ -221,25 +235,24 @@ function subtitusi(matrix) {
   result.innerHTML += `<h3 class="pt-2">Proses Substitusi:</h3><br>`;
   for (let i = n - 1; i >= 0; i--) {
     resultValues[i] = matrix[i][n] / matrix[i][i];
-    result.innerHTML += `Menghitung x${i + 1}:<br>`;
-    result.innerHTML += `x${i + 1} = ${matrix[i][n]} / ${
+    result.innerHTML += `<p class="pt-2">Menghitung a${i + 1}:</p><br>`;
+    result.innerHTML += `<pre>a${i + 1} = ${matrix[i][n]} / ${
       matrix[i][i]
-    } = ${formatFloat(resultValues[i])}<br>`;
-
+    } = ${formatFloat(resultValues[i])}<br></pre>`;
     for (let k = i - 1; k >= 0; k--) {
       matrix[k][n] -= matrix[k][i] * resultValues[i];
-      result.innerHTML += `b${k + 1}${n + 1} = ${
+      result.innerHTML += `<pre>b${k + 1}${n + 1} = ${
         matrix[k][n] + matrix[k][i] * resultValues[i]
       } - (${matrix[k][i]} * ${formatFloat(resultValues[i])}) = ${formatFloat(
         matrix[k][n]
-      )}<br>`;
+      )}<br></pre>`;
     }
   }
 
   // Menampilkan hasil substitusi akhir
   result.innerHTML += `<h3 class="pt-2">Hasil Substitusi:</h3><br>`;
   for (let i = 0; i < n; i++) {
-    result.innerHTML += `x${i + 1} = ${formatFloat(resultValues[i])}<br>`;
+    result.innerHTML += `a${i + 1} = ${formatFloat(resultValues[i])}<br>`;
   }
   return resultValues;
 }
@@ -249,6 +262,7 @@ function subtitusi(matrix) {
 function resetForm() {
   formInput.innerHTML = "";
   result.innerHTML = "";
+  containerSolve.style.display = "none";
   containerResult.style.display = "none";
 }
 
