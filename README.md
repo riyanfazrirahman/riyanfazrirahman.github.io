@@ -19,7 +19,7 @@ I enjoy solving complex problems and continuously learning new technologies. Thi
 
 Here are some of the key projects in my portfolio:
 
-### [Project 1: App Berbasis Web Rumus Segitiga](https://riyanfazrirahman.github.io/project-revou/luas-segitiga.html)
+### [Project 1: App Berbasis Web Rumus Segitiga](https://riyanfazrirahman.github.io/project-revou/)
 
 - **Description:** A dynamic web application for calculating the area and perimeter of a triangle.
 - **Technologies:** HTML, CSS, JavaScript
@@ -29,7 +29,7 @@ Here are some of the key projects in my portfolio:
   - Responsive design for various devices
   - Simple and clean UI
 
-### [Project 2: App Berbasis Web Metode Eliminasi Gauss](https://riyanfazrirahman.github.io/code-numerik/index.html)
+### [Project 2: App Berbasis Web Metode Eliminasi Gauss](https://riyanfazrirahman.github.io/code-numerik/)
 
 - **Description:** A dynamic web applications to calculate the system of linear equations using the Gauss and Gauss Jordan elimination method.
 - **Technologies:** HTML, CSS, JavaScript
