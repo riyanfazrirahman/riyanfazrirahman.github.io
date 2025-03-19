@@ -1,49 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" data-bs-theme="dark">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Riyan Fazri Rahman - Portofolio</title>
 
-        <!-- Icon Github -->
+        <!-- Icon GitHub -->
         <link rel="icon" type="image/png"
             href="https://avatars.githubusercontent.com/u/112231170">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"
+            crossorigin="anonymous"></script>
+        <style>
+             .theme-toggle {
+                cursor: pointer;
+                border: none;
+                background: none;
+                font-size: 1.5rem;
+            }
+        </style>
     </head>
     <body>
-        <a href="project-revou/">
-            <div style="align-items: center; display: flex; margin: 2px 0;">
-                <img src="assets/icon-file.png" alt="icon-file.png"
-                    style="width: 18px; margin-right: 10px;">
-                <span>project-revou</span>
+        <div class="navbar py-3 fixed-top bg-body-tertiary">
+            <div
+                class="container d-flex justify-content-between align-items-center">
+                <div class="sa">
+                    <h1 class="mb-0 d-flex align-items-center fs-1"
+                        style="font-family: monospace;">
+
+                        riyanfazrirahman
+                        <br>
+                    </h1>
+                    <a class="text-decoration-none"
+                        href="https://github.com/riyanfazrirahman">
+                        <img
+                            src="https://avatars.githubusercontent.com/u/112231170"
+                            width="16" class="me-1">
+                        @riyanfazrirahman
+                    </a>
+                </div>
+
+                <button class="theme-toggle btn btn-outline-secondary"
+                    onclick="toggleTheme()">🌙</button>
             </div>
-        </a>
-        <a href="code-numerik/">
-            <div style="align-items: center; display: flex; margin: 2px 0;">
-                <img src="assets/icon-file.png" alt="icon-file.png"
-                    style="width: 18px; margin-right: 10px;">
-                <span>code-numerik</span>
+        </div>
+
+        <div class="container" style="margin-top: 8rem;">
+            <!-- Input Pencarian -->
+            <div class="mb-3">
+                <input type="text" id="search-input" class="form-control"
+                    placeholder="Search repository..." oninput="searchRepos()">
             </div>
-        </a>
-        <a href="code-numerik-jacobi/">
-            <div style="align-items: center; display: flex; margin: 2px 0;">
-                <img src="assets/icon-file.png" alt="icon-file.png"
-                    style="width: 18px; margin-right: 10px;">
-                <span>code-numerik-jacobi</span>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-nowrap">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Repository</th>
+                            <th>Release</th>
+                            <th>Programming Language</th>
+                            <th>GitHub Pages</th>
+                        </tr>
+                    </thead>
+                    <tbody id="repo-table"></tbody>
+                </table>
             </div>
-        </a>
-        <a href="code-numerik-interpolasi/">
-            <div style="align-items: center; display: flex; margin: 2px 0;">
-                <img src="assets/icon-file.png" alt="icon-file.png"
-                    style="width: 18px; margin-right: 10px;">
-                <span>code-numerik-interpolasi</span>
-            </div>
-        </a>
-        <a href="game-xox/">
-            <div style="align-items: center; display: flex; margin: 2px 0;">
-                <img src="assets/icon-file.png" alt="icon-file.png"
-                    style="width: 18px; margin-right: 10px;">
-                <span>game-xox</span>
-            </div>
-        </a>
+
+            <p id="loading" class="text-center">Fetching data...</p>
+
+            <!-- Pagination -->
+            <nav>
+                <ul class="pagination" id="pagination">
+                </ul>
+            </nav>
+        </div>
+
+        <script src="js/script.js"></script>
     </body>
 </html>
