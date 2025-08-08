@@ -1,0 +1,69 @@
+:root {
+  --bs-heading-font-family: "Poppins", sans-serif;
+  --heading-scale: 1.5; /* 1 jadi 2 naik 100% */
+}
+
+::selection {
+  background: #9c9e9fff; /* Warna latar belakang seleksi */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Atur ulang ukuran heading */
+h1 {
+  font-size: calc(2.5rem * var(--heading-scale));
+}
+h2 {
+  font-size: calc(2rem * var(--heading-scale));
+}
+h3 {
+  font-size: calc(1.75rem * var(--heading-scale));
+}
+h4 {
+  font-size: calc(1.5rem * var(--heading-scale));
+}
+h5 {
+  font-size: calc(1.25rem * var(--heading-scale));
+}
+h6 {
+  font-size: calc(1rem * var(--heading-scale));
+}
+
+.theme-toggle {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+}
+
+/* pagination */
+/* Default (light mode) */
+[data-bs-theme="light"] .pagination .page-item .page-link {
+  color: #000; /* hitam */
+}
+
+/* Dark mode */
+[data-bs-theme="dark"] .pagination .page-item .page-link {
+  color: #fff; /* putih */
+}
+
+/* Aktif item - light */
+[data-bs-theme="light"] .pagination .page-item.active .page-link {
+  background-color: #212529;
+  border-color: #212529;
+  color: #fff;
+}
+
+/* Aktif item - dark */
+[data-bs-theme="dark"] .pagination .page-item.active .page-link {
+  background-color: #fff;
+  border-color: #212529;
+  color: #000;
+}
