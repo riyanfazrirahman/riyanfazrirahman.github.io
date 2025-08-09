@@ -1,6 +1,6 @@
 :root {
   --bs-heading-font-family: "Poppins", sans-serif;
-  --heading-scale: 1.5; /* 1 jadi 2 naik 100% */
+  --heading-scale: 1.4; /* 1 jadi 2 naik 100% */
 }
 
 ::selection {
@@ -18,22 +18,22 @@ h6 {
 
 /* Atur ulang ukuran heading */
 h1 {
-  font-size: calc(2.5rem * var(--heading-scale));
+  font-size: calc(2.5em * var(--heading-scale));
 }
 h2 {
-  font-size: calc(2rem * var(--heading-scale));
+  font-size: calc(2em * var(--heading-scale));
 }
 h3 {
-  font-size: calc(1.75rem * var(--heading-scale));
+  font-size: calc(1.75em * var(--heading-scale));
 }
 h4 {
-  font-size: calc(1.5rem * var(--heading-scale));
+  font-size: calc(1.5em * var(--heading-scale));
 }
 h5 {
-  font-size: calc(1.25rem * var(--heading-scale));
+  font-size: calc(1.25em * var(--heading-scale));
 }
 h6 {
-  font-size: calc(1rem * var(--heading-scale));
+  font-size: calc(1em * var(--heading-scale));
 }
 
 .theme-toggle {
@@ -66,4 +66,16 @@ h6 {
   background-color: #fff;
   border-color: #212529;
   color: #000;
+}
+
+.btn-floating {
+  margin: 0;
+  padding: 0 8px 0 8px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 999;
+  font-size: 2rem;
+  border: none;
+  transition: all 0.3s ease;
 }

@@ -8,6 +8,13 @@ function applyTheme(theme) {
       ? "<i class='bi bi-moon-fill'></i>"
       : "<i class='bi bi-sun-fill'></i>";
 
+  // Ganti gambar about
+  const aboutImg = document.querySelector("#about-img");
+  if (aboutImg) {
+    aboutImg.src =
+      theme === "dark" ? "assets/image1-1.png" : "assets/image1-2.png";
+  }
+
   // Bootstrap theme system (opsional)
   document.documentElement.setAttribute("data-bs-theme", theme);
 
@@ -16,10 +23,18 @@ function applyTheme(theme) {
 }
 
 function toggleTheme() {
-  const currentTheme = document.body.classList.contains("dark-mode")
-    ? "light"
-    : "dark";
-  applyTheme(currentTheme);
+  // Ambil tema saat ini dari localStorage atau deteksi sistem
+  const currentTheme =
+    localStorage.getItem("theme") ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light");
+
+  // Tentukan tema baru
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+  // Terapkan
+  applyTheme(newTheme);
 }
 
 // Deteksi tema dari sistem

@@ -1,0 +1,57 @@
+<div class="bg-dark-subtle">
+    <div class="container">
+        <div class="row">
+            <div
+                class="d-flex flex-column py-5 justify-content-center align-items-center"
+                style="min-height: 100vh;">
+
+                <!-- Title page -->
+                <div class="text-center mb-5">
+                    <h6 class="text-muted"># Open Source Works</h6>
+                    <h4 class="fw-bold">Mau Lihat Repositories GitHub Saya?</h4>
+                </div>
+
+                <!-- Input Search -->
+                <div
+                    class="input-group mb-2">
+                    <input type="text" id="search-input"
+                        class="form-control"
+                        placeholder="Find a repository..."
+                        oninput="searchRepos()">
+                </div>
+
+                <!-- Tabel repo -->
+                <div class="card mb-5 p-2 w-100">
+                    <div class="table-responsive">
+                        <table
+                            class="table table-striped text-nowrap align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Repositories</th>
+                                    <th>Latest Update</th>
+                                    <th>Language</th>
+                                    <th>Link Pages</th>
+                                    <th>Created</th>
+                                </tr>
+                            </thead>
+                            <tbody id="repo-table"></tbody>
+                        </table>
+                    </div>
+
+                    <p id="loading"
+                        class="text-center">Fetching data...</p>
+
+                    <!-- Pagination -->
+                    <nav
+                        aria-label="Page navigation example"
+                        class="mb-0 row">
+                        <ul
+                            class="pagination mb-0 justify-content-center"
+                            id="pagination">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
