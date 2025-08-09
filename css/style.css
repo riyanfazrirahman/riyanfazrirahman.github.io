@@ -43,6 +43,22 @@ h6 {
   font-size: 1.5rem;
 }
 
+/* Sections */
+
+.section-hero {
+  min-height: 600px;
+  height: auto;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .section-hero {
+    min-height: auto; /* atau 100%, atau tidak ada minimal height */
+  }
+}
+
+/* ------------------------- */
+
 /* pagination */
 /* Default (light mode) */
 [data-bs-theme="light"] .pagination .page-item .page-link {
