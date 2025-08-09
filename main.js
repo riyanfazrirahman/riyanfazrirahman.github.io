@@ -26,7 +26,7 @@ function loadScriptsSequentially(scripts) {
 
 // Daftar komponen + scriptnya
 const components = [
-  { id: "comNavbar", file: "templates/navbar.html", scripts: [] },
+  { id: "comNavbar", file: "templates/navbar.html", scripts: ["js/theme.js"] },
   { id: "comResume", file: "components/resume.html", scripts: [] },
   { id: "comSpecialis", file: "components/specialis.html", scripts: [] },
   { id: "comAbout", file: "components/about.html", scripts: [] },
