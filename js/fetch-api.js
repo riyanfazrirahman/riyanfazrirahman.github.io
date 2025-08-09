@@ -4,9 +4,11 @@ let allRepos = [];
 
 async function fetchRepos() {
   try {
+    document.getElementById("refresh-btn").classList.add("d-none");
     document.getElementById("loading").textContent = "Fetching data...";
-    const [allRes] = await Promise.all([fetch(API_REPO)]);
+    document.getElementById("loading").style.display = "block";
 
+    const [allRes] = await Promise.all([fetch(API_REPO)]);
     const allData = await allRes.json();
 
     allRepos = [...allData];
@@ -17,6 +19,7 @@ async function fetchRepos() {
     document.getElementById("loading").style.display = "none";
   } catch (error) {
     document.getElementById("loading").textContent = "Gagal ambil data.";
+    document.getElementById("refresh-btn").classList.remove("d-none"); // munculkan tombol refresh
     console.error(error);
   }
 }
